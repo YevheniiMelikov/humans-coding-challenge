@@ -9,8 +9,9 @@ export const App: React.FC = () => (
     <PageLayout>
       <Navbar />
       <Switch>
-        <Route path="/humans/:id?" component={Notes} />
-        <Redirect to="/humans" />
+        <Route path="/humans/new" exact render={() => <Notes newHuman />} />
+        <Route path="/humans/:id" component={Notes} />
+        <Redirect to="/humans/new" />
       </Switch>
     </PageLayout>
   </BrowserRouter>
