@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+    branches: ['master']
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install deps
+        run: npm i
+      - name: build
+        run: npm run predeploy
+      - name: deploy
+        run: npm run deploy
